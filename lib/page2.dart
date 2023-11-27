@@ -26,7 +26,7 @@ class MyFadeTest extends StatefulWidget {
   @override
   State<MyFadeTest> createState() => _MyFadeTest();
 }
-//TickerProviderStateMixinÊÇÒ»¸ö·Ç³£ÖØÒªµÄmixin£¬ËüÎªÄãµÄwidgetÌá¹©ÁË·ÃÎÊ¶¯»­tickerµÄÄÜÁ¦¡£
+//TickerProviderStateMixinæ˜¯ä¸€ä¸ªéå¸¸é‡è¦çš„mixinï¼Œå®ƒä¸ºä½ çš„widgetæä¾›äº†è®¿é—®åŠ¨ç”»tickerçš„èƒ½åŠ›ã€‚
 class _MyFadeTest extends State<MyFadeTest> with TickerProviderStateMixin {
   late AnimationController controller;
   late CurvedAnimation curve;
@@ -34,12 +34,12 @@ class _MyFadeTest extends State<MyFadeTest> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    //Õâ¸ö¶ÔÏó¿ØÖÆ¶¯»­µÄÊ±¼äºÍÍ¬²½¡£ÕâÀï£¬¶¯»­µÄ³ÖĞøÊ±¼äÊÇ2000ºÁÃë£¨2Ãë£©£¬
+    //è¿™ä¸ªå¯¹è±¡æ§åˆ¶åŠ¨ç”»çš„æ—¶é—´å’ŒåŒæ­¥ã€‚è¿™é‡Œï¼ŒåŠ¨ç”»çš„æŒç»­æ—¶é—´æ˜¯2000æ¯«ç§’ï¼ˆ2ç§’ï¼‰ï¼Œ
     controller = AnimationController(
       duration: const Duration(milliseconds: 2000),
-      vsync: this,//VSyncÊÇ´¹Ö±Í¬²½µÄ¼ò³Æ£¬ÊÇÒ»ÖÖ´¦ÀíÆÁÄ»ËºÁÑµÄ·½·¨¡£ËüÍ¨¹ı½«ÏÔÊ¾Æ÷µÄË¢ĞÂÂÊÓëÏÔ¿¨Êä³öµÄÍ¼ÏñÖ¡ÂÊÍ¬²½£¬±íÊ¾ÓëÕâ¸öWidgetµÄÍ¬²½£¨vsync: this£©Ïà¹ØÁª¡£
+      vsync: this,//VSyncæ˜¯å‚ç›´åŒæ­¥çš„ç®€ç§°ï¼Œæ˜¯ä¸€ç§å¤„ç†å±å¹•æ’•è£‚çš„æ–¹æ³•ã€‚å®ƒé€šè¿‡å°†æ˜¾ç¤ºå™¨çš„åˆ·æ–°ç‡ä¸æ˜¾å¡è¾“å‡ºçš„å›¾åƒå¸§ç‡åŒæ­¥ï¼Œè¡¨ç¤ºä¸è¿™ä¸ªWidgetçš„åŒæ­¥ï¼ˆvsync: thisï¼‰ç›¸å…³è”ã€‚
     );
-    // ÕâÊÇÒ»¸öÇúÏß¶¯»­£¬ËüµÄ¸¸¿ØÖÆÆ÷ÊÇÉÏÃæ´´½¨µÄcontroller£¬¶¯»­ÇúÏßÊÇeaseIn£¨¼´¿ªÊ¼Ê±Âı£¬È»ºó±ä¿ì£©¡£
+    // è¿™æ˜¯ä¸€ä¸ªæ›²çº¿åŠ¨ç”»ï¼Œå®ƒçš„çˆ¶æ§åˆ¶å™¨æ˜¯ä¸Šé¢åˆ›å»ºçš„controllerï¼ŒåŠ¨ç”»æ›²çº¿æ˜¯easeInï¼ˆå³å¼€å§‹æ—¶æ…¢ï¼Œç„¶åå˜å¿«ï¼‰ã€‚
     curve = CurvedAnimation(
       parent: controller,
       curve: Curves.easeIn,
@@ -52,7 +52,7 @@ class _MyFadeTest extends State<MyFadeTest> with TickerProviderStateMixin {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      //ÕâÀïÊ¹ÓÃÁËFadeTransition²¿¼şÀ´ÊµÏÖ½¥±äĞ§¹û¡£½¥±äµÄÍ¸Ã÷¶ÈÓÉÉÏÃæ´´½¨µÄcurve¿ØÖÆ¡£FlutterLogoÊÇÒ»¸ö°üº¬ÔÚ½¥±äĞ§¹ûÖĞµÄ²¿¼ş¡£
+      //è¿™é‡Œä½¿ç”¨äº†FadeTransitionéƒ¨ä»¶æ¥å®ç°æ¸å˜æ•ˆæœã€‚æ¸å˜çš„é€æ˜åº¦ç”±ä¸Šé¢åˆ›å»ºçš„curveæ§åˆ¶ã€‚FlutterLogoæ˜¯ä¸€ä¸ªåŒ…å«åœ¨æ¸å˜æ•ˆæœä¸­çš„éƒ¨ä»¶ã€‚
       body: Center(
         child: FadeTransition(
           opacity: curve,
@@ -64,7 +64,7 @@ class _MyFadeTest extends State<MyFadeTest> with TickerProviderStateMixin {
       floatingActionButton: FloatingActionButton(
         tooltip: 'Fade',
         onPressed: () {
-          controller.forward();//´¥·¢¶¯»­ÏòÇ°²¥·Å£¬
+          controller.forward();//è§¦å‘åŠ¨ç”»å‘å‰æ’­æ”¾ï¼Œ
         },
         child: const Icon(Icons.brush),
       ),

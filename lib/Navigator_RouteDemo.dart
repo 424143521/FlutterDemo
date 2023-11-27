@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:untitled/CanvasDemo.dart' as lib1;
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => MyHomePage(),
         '/PageA': (context) => PageA(),
         '/PageB': (context) => PageB(),
+        '/Page4': (context) => lib1.Signature()
       },
     );
   }
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               child: Text('page1'),
               onPressed: () {
-                Navigator.pushNamed(context, '/PageA');
+                Navigator.pushNamed(context, '/PageA');//通过路由名 压栈 (push) 到 Navigator 中来跳转到这个 route。
               },
             ),
             ElevatedButton(
@@ -47,6 +48,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, '/PageB');
               },
             ),
+            ElevatedButton(
+              child: Text('page4'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/Page4');
+              },
+            )
           ],
         ),
       ),
@@ -67,7 +74,12 @@ class _PageAState extends State<PageA> {
         title: Text('Page A'),
       ),
       body: Center(
-        child: Text('Page A'),
+        child:  ElevatedButton(
+          child: Text('page'),
+          onPressed: () {
+            Navigator.pushNamed(context, '/');//通过路由名 压栈 (push) 到 Navigator 中来跳转到这个 route。
+          },
+        ),
       ),
     );
   }

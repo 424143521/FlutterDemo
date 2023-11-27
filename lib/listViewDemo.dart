@@ -27,31 +27,30 @@ class SampleAppPage extends StatefulWidget {
   @override
   State<SampleAppPage> createState() => _SampleAppPageState();//为小部件创建一个状态。
 }
-//定义一个内部类来管理小部件的状态。在这个例子中，状态变量是textToShow。
 class _SampleAppPageState extends State<SampleAppPage> {
-  // Default placeholder text.
-  String textToShow = 'I Like Flutter';
-//定义一个私有方法来更新textToShow的状态。当调用_updateText方法时，它会使用setState来更新文本。
-  void _updateText() {
-    setState(() {//setState()是Flutter中的一个方法，用于通知Flutter框架，某个小部件的状态已经发生了改变并重新构建这个小部件。
-      // Update the text.
-      textToShow = 'Flutter is Awesome!';
-    });
-  }
-//重写build方法来定义小部件的外观。在这个例子中，它返回一个包含标题、文本和一个浮动按钮的Scaffold小部件。
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sample App'),
-      ),//在Scaffold中添加一个app bar，标题为"Sample App"。
-      body: Center(child: Text(textToShow)),//在Scaffold的主体部分，将文本居中显示。文本的内容是从状态变量textToShow获取的。
-      //在Scaffold中添加一个浮动按钮。当用户点击这个按钮时，它会触发_updateText方法，从而更新显示的文本。
-      floatingActionButton: FloatingActionButton(
-        onPressed: _updateText,
-        tooltip: 'Update Text',
-        child: const Icon(Icons.update),
       ),
+      body: ListView(children: _getListData()),
     );
+  }
+
+  List<Widget> _getListData() {
+    List<Widget> widgets = [];
+    for (int i = 0; i < 100; i++) {
+      widgets.add(GestureDetector(//把列表项Widget放到一个GestureDetector 里，传入onTap属性来实现点击监听。
+        onTap: () {
+          print('Row i was tapped!');
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Text('Row i'),
+        ),
+      ));
+    }
+    return widgets;
   }
 }
